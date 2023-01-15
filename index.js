@@ -44,7 +44,7 @@ app.post('/api/users', (req, res) => {
     const data = req.body;
     const formattedData = _.map(data, (value, key) => `${key}: ${value}`).join('\n');
     const msg = {
-        to: `${process.envv.EMAIL_RECEIVER}`,
+        to: `info@sunnygreen.nl`,
         from: `${process.env.EMAIL_SENDER}`,
         subject: 'New data received',
         text: formattedData,
@@ -59,6 +59,9 @@ app.post('/api/users', (req, res) => {
         });
 });
 
+app.get('/', (req , res)=>{
+    res.send("api is working ...")
+})
 
 //Route pour supprimer les images à la fin
 
